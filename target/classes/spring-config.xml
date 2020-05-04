@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="daoXMLFile" class="be.iccbxl.poo.dao.DaoXMLFile">
+		<property name="filename_people" value="data\\membres.xml" />
+		<property name="filename_books" value="data\\books.xml" />
+	</bean>
+	
+	<bean id="metier" class="be.iccbxl.poo.metier.Metier">
+		<property name="dao" ref="daoXMLFile" />
+	</bean>
+	
+	<bean id="uiConsole" class="be.iccbxl.poo.ui.UiConsole">
+		<property name="metier" ref="metier" />
+	</bean>
+
+
+</beans>
